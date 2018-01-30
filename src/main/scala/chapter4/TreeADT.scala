@@ -50,6 +50,45 @@ class TreeADT {
     }
   }
 
+  def isBalanced(): Boolean = {
+    root match {
+      case EmptyTree => true
+      case n: Node => {
+        isBalanced(root)
+      }
+    }
+  }
+
+  private def isBalanced(node: BinaryNode): Boolean = {
+    node match {
+      case EmptyTree => true
+      case n: Node => {
+        val left = isBalanced(n.left)
+        lazy val right = isBalanced(n.right)
+        if (!left || !right)
+          false
+        else {
+          val isUnbalanced = math.abs(getHeight(n.left) - getHeight(n.right)) > 1
+          if (isUnbalanced)
+            false
+          else
+            true
+        }
+      }
+    }
+  }
+
+  private def getHeight(node: BinaryNode): Int = {
+    node match {
+      case EmptyTree => -1
+      case n: Node => {
+        val leftHeight = getHeight(n.left) + 1
+        val rightHeight = getHeight(n.right) + 1
+        math.max(leftHeight, rightHeight)
+      }
+    }
+  }
+
   override def toString(): String = root.toString
 
 }
