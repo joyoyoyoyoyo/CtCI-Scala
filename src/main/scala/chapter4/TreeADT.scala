@@ -36,7 +36,7 @@ class TreeADT {
 
   /**
     * Although, insert is a recursive algorithm. insert has an amortized O(logN) tree traversal for insertions.
-    * So having a non-tail-recursive insertion works because of the BST traits
+    * So having a non-tail-recursive insertion works because of the BST traits. Stackoverflows are unlikely
     * @param v
     * @param node
     * @return
