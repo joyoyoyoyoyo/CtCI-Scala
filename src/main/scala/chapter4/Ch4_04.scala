@@ -1,4 +1,4 @@
-package chapter4.problem04
+package chapter4
 
 /**
   * Created by: Angel Ortega
@@ -6,8 +6,7 @@ package chapter4.problem04
   */
 
 
-
-object Ch4_4 extends App {
+object Ch4_04 extends App {
   sealed trait Node
   case object Leaf extends Node
   case class TNode(v: Int, left: Node, right: Node) extends Node

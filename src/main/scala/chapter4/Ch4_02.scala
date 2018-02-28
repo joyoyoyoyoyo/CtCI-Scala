@@ -1,12 +1,10 @@
-package chapter4.problem02
-
-import chapter4.{Graph, Vertex}
+package chapter4
 
 /**
   * Created by: Angel Ortega
   * Date: 2/17/18
   */
-object Solution {
+object Ch4_02 {
 
   object State extends Enumeration {
     val Visited, Visiting, Unvisited = Value

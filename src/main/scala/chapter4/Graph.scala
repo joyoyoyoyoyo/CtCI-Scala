@@ -1,7 +1,7 @@
 package chapter4
 
 import scala.collection.immutable.ListSet
-import problem02.Solution.State
+import Solution.State
 
 case class Vertex[+T](index: Int, value: T) {
   var state = State.Unvisited
