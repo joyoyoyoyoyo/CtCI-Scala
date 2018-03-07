@@ -1,8 +1,11 @@
 package chapter4
 
 import scala.collection.immutable.ListSet
+import Solution.State
 
-case class Vertex[+T](index: Int, value: T)
+case class Vertex[+T](index: Int, value: T) {
+  var state = State.Unvisited
+}
 object Vertex {
   def apply(index: Int) = {
     new Vertex[Int](index, index)
@@ -15,14 +18,15 @@ object Vertex {
   * @param V: number of vertices
   * @throws IllegalArgumentException if a negative number is inserted {{{ V < 0 }}}
   */
-case class Graph(V: Int) {
+case class Graph[+T](V: Int) {
   require(V > -1, "The number of vertices in a graph must always have 0 or more vertices.")
 
   /**
     * Adjaceny-list representation of a graph.
     */
-  private val adj: Array[ListSet[Vertex[_]]] = Array.fill(V)(ListSet.empty[Vertex[_]])
+  val adj: Array[ListSet[Vertex[_]]] = Array.fill(V)(ListSet.empty[Vertex[_]])
   var E = 0
+  val vertices = Array.tabulate[Vertex[_]](V)(i => Vertex(i))
 
   /**
     * Vertex id {{{ v.id }}} must is indexable
@@ -46,6 +50,8 @@ case class Graph(V: Int) {
     validateVertex(v2)
     adj(v1.index) = adj(v1.index) + v2
     adj(v2.index) = adj(v2.index) + v1
+    vertices(v1.index) = v1
+    vertices(v2.index) = v2
     E += 1
   }
 
@@ -54,7 +60,7 @@ case class Graph(V: Int) {
     * @param v Vertex
     * @return an iterable instance of all adjacent nodes to vertex {{{v }}}
     */
-  def adjacent[T](v: Vertex[T]): Iterable[Vertex[_]] = {
+  def adjacent[T](v: Vertex[T]): Iterable[Vertex[T]] = {
     validateVertex(v)
     adj(v.index)
   }
