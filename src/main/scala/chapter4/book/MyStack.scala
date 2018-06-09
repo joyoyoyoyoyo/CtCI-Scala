@@ -16,11 +16,10 @@ class MyStack[T] {
 
   def pop(): T = {
     top match {
-      case Some(frame) => {
+      case Some(frame) =>
         val item = frame.data // will need to be a var?
         top = frame.next // is this public or private? can this be referenced?
         item // will this be null or new StackNode(top.data)?
-      }
       case None => throw new EmptyStackException()
     }
   }
@@ -33,12 +32,12 @@ class MyStack[T] {
 
   def peek(): T = {
     top match {
-      case Some(frame) => frame.data
+      case Some(frame) => val copy = frame.data; copy
       case None => throw new EmptyStackException()
     }
   }
 
-  def isEmpty: Boolean = top.isDefined
+  def isEmpty: Boolean = top.isEmpty
 
   override def toString: String = top.mkString(" ")
 }
