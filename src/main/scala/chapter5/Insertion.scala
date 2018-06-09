@@ -4,7 +4,7 @@ package chapter5
   * Created by: Angel Ortega
   * Date: 3/8/18
   */
-object Insertion extends App {
+object Insertion {
   /**
     * You are given two 32-bit numbers, N and M, and two bit positions, i and j.
     * Write a method to set all bits between i and j in N equal to M (e.g., M becomes
