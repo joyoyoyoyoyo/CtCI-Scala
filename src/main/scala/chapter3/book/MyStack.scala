@@ -1,7 +1,8 @@
-package chapter4.book
+package chapter3.book
 
 import java.util.EmptyStackException
-import chapter4.book.MyStack.StackNode
+
+import chapter3.book.MyStack.StackNode
 
 object MyStack {
 

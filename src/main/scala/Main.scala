@@ -1,4 +1,4 @@
-import chapter4.book.{MyQueue, MyStack}
+import chapter3.book.{MyQueue, MyStack}
 
 object Main extends App {
   val s = new MyStack[Int]

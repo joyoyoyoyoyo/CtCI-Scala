@@ -1,4 +1,6 @@
-package chapter4.book
+package chapter3.book
+
+import chapter3.book.MyQueue.QueueNode
 
 object MyQueue {
 
@@ -9,8 +11,6 @@ object MyQueue {
 }
 
 class MyQueue[T] {
-
-  import chapter4.book.MyQueue.QueueNode
 
   private var first: Option[QueueNode[T]] = None
   private var last: Option[QueueNode[T]] = None
